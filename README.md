@@ -1,2 +1,2 @@
-# KitchenChaos
-Первая игра на Unity
+# Kitchen_funny
+Итоговый проект в OTUS
