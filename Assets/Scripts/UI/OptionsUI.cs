@@ -28,6 +28,7 @@ public class OptionsUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _interactText;
     [SerializeField] private TextMeshProUGUI _interactAlternateText;
     [SerializeField] private TextMeshProUGUI _pauseText;
+    [SerializeField] private Transform _pressToRebindKeyTransform;
 
     private void Awake()
     {
@@ -36,6 +37,8 @@ public class OptionsUI : MonoBehaviour
         _soundEffectsButton.onClick.AddListener(() => { SoundManager.Instance.ChangeVolume(); UpdateVisual(); });
         _musicButton.onClick.AddListener(() => { MusicManager.Instance.ChangeVolume(); UpdateVisual();});
         _closeButton.onClick.AddListener(() => { Hide(); });
+
+        _moveUpButton.onClick.AddListener(() => { RebindBinding(GameInput.Binding.Move_Up); });
     }
 
     private void Start()
@@ -44,6 +47,7 @@ public class OptionsUI : MonoBehaviour
 
         UpdateVisual();
 
+        HidePressToRebindKey();
         Hide();
     }
 
@@ -72,9 +76,27 @@ public class OptionsUI : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void Hide()
+    private void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    private void ShouPressToRebindKey()
+    {
+        _pressToRebindKeyTransform.gameObject.SetActive(true);
+
+    }
+
+    private void HidePressToRebindKey()
+    {
+        _pressToRebindKeyTransform.gameObject.SetActive(false);
+
+    }
+
+    private void RebindBinding(GameInput.Binding binding)
+    {
+        ShouPressToRebindKey();
+        GameInput.Instance.RebindBinding(binding);
     }
 }
 
