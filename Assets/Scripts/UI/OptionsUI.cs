@@ -1,14 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class OptionsUI : MonoBehaviour
 {
-    public static OptionsUI Instance { get; private set; }
-
     [SerializeField] private Button _soundEffectsButton;
     [SerializeField] private Button _musicButton;
     [SerializeField] private Button _closeButton;
@@ -29,6 +25,9 @@ public class OptionsUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _interactAlternateText;
     [SerializeField] private TextMeshProUGUI _pauseText;
     [SerializeField] private Transform _pressToRebindKeyTransform;
+
+
+    public static OptionsUI Instance { get; private set; }
 
     private void Awake()
     {
@@ -96,7 +95,7 @@ public class OptionsUI : MonoBehaviour
     private void RebindBinding(GameInput.Binding binding)
     {
         ShouPressToRebindKey();
-        GameInput.Instance.RebindBinding(binding);
+        GameInput.Instance.RebindBinding(binding, HidePressToRebindKey);
     }
 }
 
