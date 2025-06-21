@@ -8,10 +8,8 @@ public class PlatesCounter : BaseCounter
     public event EventHandler OnPlateSpawned;
     public event EventHandler OnPlateRemoved;
 
-
-
-
     [SerializeField] private KitchenObjectSO _plateKitchenObjectSO;
+
     private float _spawnPlateTimer;
     private float _spawnPlateTimerMax = 4f;
     private int _platesSpawnedAmount;

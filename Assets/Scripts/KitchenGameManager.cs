@@ -9,7 +9,7 @@ public class KitchenGameManager : MonoBehaviour
 
     public event EventHandler OnStateChanged;
     public event EventHandler OnGamePaused;
-    public event EventHandler OnGameUnPaused;
+    public event EventHandler OnGameUnpaused;
 
     private enum State
     {
@@ -21,15 +21,15 @@ public class KitchenGameManager : MonoBehaviour
     }
 
     private State _state;
-    //private float _waitingToStartTimer = 1f;
-    private float _countdownToStartTimer = 3f;
-    private float _gamePlayingTimer; // Example game duration
-    private float _gamePlayingTimerMax = 120f; // Example game duration max
+    private float _countdownToStartTimer = 5f;
+    private float _gamePlayingTimer; 
+    private float _gamePlayingTimerMax = 120f; 
     private bool _isGamePaused = false;
 
     private void Awake()
     {
         Instance = this;
+
         _state = State.WaitingToStart;
     }
 
@@ -59,14 +59,7 @@ public class KitchenGameManager : MonoBehaviour
         switch (_state)
         {
             case State.WaitingToStart:
-                //_waitingToStartTimer -= Time.deltaTime;
-                //if (_waitingToStartTimer < 0f)
-                //{
-                //    _state = State.CountdownToStart;
-                //    OnStateChanged?.Invoke(this, EventArgs.Empty);
-                //}
-                //break;
-
+                 break;
             case State.CountdownToStart:
                 _countdownToStartTimer -= Time.deltaTime;
                 if (_countdownToStartTimer < 0f)
@@ -76,7 +69,6 @@ public class KitchenGameManager : MonoBehaviour
                     OnStateChanged?.Invoke(this, EventArgs.Empty);
                 }
                 break;
-
             case State.GamePlaing:
                 _gamePlayingTimer -= Time.deltaTime;
                 if (_gamePlayingTimer < 0f)
@@ -86,10 +78,9 @@ public class KitchenGameManager : MonoBehaviour
                 }
                 break;
             case State.GameOver:
-                // Handle game over logic here
-                break;
+                 break;
         }
-        Debug.Log(_state);
+        
     }
 
     public bool IsGamePlaying()
@@ -120,15 +111,18 @@ public class KitchenGameManager : MonoBehaviour
     public void TogglePauseGame()
     {
         _isGamePaused = !_isGamePaused;
+
         if (_isGamePaused)
         {
             Time.timeScale = 0f; // Pause the game
+
             OnGamePaused?.Invoke(this, EventArgs.Empty);
         }
         else
         {
             Time.timeScale = 1f; // Resume the game
-            OnGameUnPaused?.Invoke(this, EventArgs.Empty);
+
+            OnGameUnpaused?.Invoke(this, EventArgs.Empty);
         }
     }
 }

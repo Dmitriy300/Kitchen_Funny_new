@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class GamesStartCountDownUI : MonoBehaviour
@@ -26,7 +25,7 @@ public class GamesStartCountDownUI : MonoBehaviour
         Hide();
     }
 
-    private void KitchenGameManager_OnStateChanged(object sender, EventArgs e)
+    private void KitchenGameManager_OnStateChanged(object sender, System.EventArgs e)
     {
        if (KitchenGameManager.Instance.IsCountdownToStartActive())
        {

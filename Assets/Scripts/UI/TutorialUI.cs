@@ -21,13 +21,15 @@ public class TutorialUI : MonoBehaviour
     private void Start()
     {
         GameInput.Instance.OnBindingRebind += GameInput_OnBindingRebind;
-        KitchenGameManager.Instance.OnStateChanged += KitchenGameManager_OnStateChanged; 
+        KitchenGameManager.Instance.OnStateChanged += KitchenGameManager_OnStateChanged;
+        
         UpdateVisual();
+
         Show();
 
     }
 
-    private void KitchenGameManager_OnStateChanged(object sender, EventArgs e)
+    private void KitchenGameManager_OnStateChanged(object sender, System.EventArgs e)
     {
         if (KitchenGameManager.Instance.IsCountdownToStartActive())
         {
@@ -36,7 +38,7 @@ public class TutorialUI : MonoBehaviour
         
     }
 
-    private void GameInput_OnBindingRebind(object sender, EventArgs e)
+    private void GameInput_OnBindingRebind(object sender, System.EventArgs e)
     {
         UpdateVisual();
     }

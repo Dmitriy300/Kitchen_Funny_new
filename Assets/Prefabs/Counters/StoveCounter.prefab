@@ -137,7 +137,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -834,7 +834,7 @@ PrefabInstance:
     - target: {fileID: 6504000826165142139, guid: 0d8f6468e61d90a469c1a71bd86fe9c7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6504000826165142139, guid: 0d8f6468e61d90a469c1a71bd86fe9c7,
         type: 3}

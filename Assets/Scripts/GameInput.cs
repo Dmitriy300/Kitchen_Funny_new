@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
+
 
 public class GameInput : MonoBehaviour
 {
@@ -67,7 +67,7 @@ public class GameInput : MonoBehaviour
 
     private void InteractAlternate_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        Debug.Log("InteractAlternate_perform");
+        
        OnInteractAlternateAction?.Invoke(this, EventArgs.Empty);
        
     }

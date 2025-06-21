@@ -9,11 +9,12 @@ public class DeliveryManager : MonoBehaviour
     public event EventHandler OnRecipeSuccess;
     public event EventHandler OnRecipeFailed;
     public static DeliveryManager Instance { get; private set; }
+
     [SerializeField] private RecipeListSO _recipeListSO;
 
     private List<RecipeSO> _waitingRecipeSOList;
     private float _spawnRecipeTimer;
-    private float _spawnRecipeTimerMax = 4f; // Adjust as needed for difficulty
+    private float _spawnRecipeTimerMax = 10f; // Adjust as needed for difficulty
     private int _waitingRecipesMax = 4;
     private int _successfulRecipesAmount;// Maximum number of recipes to wait for
 

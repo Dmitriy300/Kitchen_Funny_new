@@ -2,8 +2,6 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
 
 public class OptionsUI : MonoBehaviour
 {
@@ -60,7 +58,7 @@ public class OptionsUI : MonoBehaviour
 
     private void Start()
     {
-        KitchenGameManager.Instance.OnGameUnPaused += KitchenGameManager_OnGameUnPaused;
+        KitchenGameManager.Instance.OnGameUnpaused += KitchenGameManager_OnGameUnPaused;
 
         UpdateVisual();
 
